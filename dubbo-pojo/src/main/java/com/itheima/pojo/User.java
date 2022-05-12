@@ -11,7 +11,7 @@ import java.io.Serializable;
  * 注意！！！
  * 将来所有的pojo都要实现Serializable接口
  */
-public class User {
+public class User implements Serializable {
     private Integer id;
     private String username;
     private String password;

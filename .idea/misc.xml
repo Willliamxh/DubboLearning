@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/dubbo-web/pom.xml" />
         <option value="$PROJECT_DIR$/dubbo-interface/pom.xml" />
         <option value="$PROJECT_DIR$/pojo/pom.xml" />
+        <option value="$PROJECT_DIR$/dubbo-pojo/pom.xml" />
       </list>
     </option>
   </component>
