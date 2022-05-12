@@ -1,19 +1,22 @@
 package com.itheima.controller;
 
+/**
+ * @Author Willam_xh
+ * @Date 2022-05-06 15:59
+ */
+
 import com.itheima.pojo.User;
 import com.itheima.service.UserService;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 @RestController
 @RequestMapping("/user")
 public class UserController {
 
     //注入service
-    //@Autowired//本地的注入
-    // 在本地spring容器里面找有没有对应的bean，现在不需要了，因为我们是spring里面就没有这个bean
+    //@Autowired//本地的注入 在本地spring容器里面找有没有对应的bean，现在不需要了，因为我们是spring里面就没有这个bean
     /*
         1. 从zookeeper注册中心获取userService的访问路径
         2. 进行远程调用RPC
@@ -21,7 +24,7 @@ public class UserController {
 
         其实就是把service容器中的对象序列化，然后传给web容器反序列化后自动注入
      */
-    @Reference//远程注入
+    @Reference(version = "v2.0")//远程注入
     private UserService userService;
 
     @RequestMapping("/sayHello")
@@ -32,7 +35,6 @@ public class UserController {
 
     /**
      *根据id 查询用户信息
-     * http://localhost:8000/user/find.do?id=2
      */
     int i=1;
     @RequestMapping("/find")
@@ -55,7 +57,4 @@ public class UserController {
     }
 
 
-
-
 }
-

@@ -9,9 +9,10 @@ import org.apache.dubbo.config.annotation.Service;
  * @Date 2022-05-06 15:31
  */
 // @Service//将该类的对象创建出来 放倒springIOC容器中
-@Service(timeout = 3000,retries = 2) //将这个类提供的方法 对外发布 将访问的地址 ip 端口 路径 注册到注册中心中
+// @Service(timeout = 3000,retries = 2) //将这个类提供的方法 对外发布 将访问的地址 ip 端口 路径 注册到注册中心中
 //timeout建议配置在服务提供方，因为服务提供方比较了解业务需要多久时间
 //当前服务3秒超市，并且重试两次，一共试三次
+@Service(version = "v3.0")//(weight = 300)//(version = "v1.0")
 public class UserServiceImpl implements UserService {
     public String sayHello() {
         return "hello dubbo~ 3号机器";

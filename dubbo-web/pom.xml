@@ -97,7 +97,11 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <port>8000</port>
+                    <!--<port>9000</port>-->
+                    <!--第二个服务器的端口-->
+                    <!--<port>9002</port>-->
+                    <!--第三个服务端口-->
+                    <port>9003</port>
                     <path>/</path>
                 </configuration>
             </plugin>

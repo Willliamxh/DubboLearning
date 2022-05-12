@@ -5,20 +5,23 @@
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!--由于不需要spring注入了，所以不需要扫描包， 我的类是通过dubbo发布出去的
-	直接用dubbo包扫描-->
 	<!--<context:component-scan base-package="com.itheima.service"/>-->
 
+	<!--启动第二个项目的时候防止端口冲突，配置一个新的端口-->
+	<dubbo:protocol port="20883"/>
 	<!--dubbo配置-->
 	<!--1.配置项目的名称 唯一-->
 	<dubbo:application name="dubbo-service">
+		<!--因为web用了33333端口 第一个用了22222端口-->
+		<dubbo:parameter key="qos.port" value="55555"/>
 	</dubbo:application>
 	<!--2、配置注册中心(zookeeper)的地址-->
 	<dubbo:registry address="zookeeper://10.193.57.57:2181"/>
 	<!--3.配置dubbo扫描包-->
 	<dubbo:annotation package="com.itheima.service.impl"/>
 
-
+	<!--源数据配置-->
+	<dubbo:metadata-report address="zookeeper://10.193.57.57:2181" />
 
 
 </beans>
