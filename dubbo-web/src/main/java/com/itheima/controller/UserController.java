@@ -24,7 +24,8 @@ public class UserController {
 
         其实就是把service容器中的对象序列化，然后传给web容器反序列化后自动注入
      */
-    @Reference(version = "v2.0")//远程注入
+    // @Reference(version = "v2.0")//远程注入
+    @Reference(cluster = "failover")
     private UserService userService;
 
     @RequestMapping("/sayHello")
