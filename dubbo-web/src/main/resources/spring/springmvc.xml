@@ -18,7 +18,8 @@
     <!--dubbo配置-->
     <!--1.配置项目的名称 唯一-->
     <dubbo:application name="dubbo-web">
-        <!--<dubbo:parameter key="qos.port" value="33333"/>-->
+        <dubbo:parameter key="qos.port" value="33333"/>
+
     </dubbo:application>
     <!--2、配置注册中心(zookeeper)的地址-->
     <dubbo:registry address="zookeeper://10.193.57.57:2181"/>
