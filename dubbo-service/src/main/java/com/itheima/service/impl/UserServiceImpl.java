@@ -10,6 +10,6 @@ import org.apache.dubbo.config.annotation.Service;
 public class UserServiceImpl implements UserService {
 
     public String sayHello() {
-        return "hello dubbo!~";
+        return "hello dubbo 2!~";
     }
 }
