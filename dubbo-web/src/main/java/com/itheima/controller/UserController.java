@@ -26,7 +26,8 @@ public class UserController {
      */
     // @Reference(version = "v2.0")//远程注入
     // @Reference(loadbalance = "random") 负载均衡
-    @Reference(cluster = "failover")
+    // @Reference(cluster = "failover")//集群容错
+    @Reference(mock = "force:return null")
     private UserService userService;
 
     @RequestMapping("/sayHello")
