@@ -32,6 +32,7 @@ public class UserController {
 
     /**
      *根据id 查询用户信息
+     * http://localhost:8000/user/find.do?id=2
      */
     int i=1;
     @RequestMapping("/find")
