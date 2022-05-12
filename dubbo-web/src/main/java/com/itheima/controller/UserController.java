@@ -1,5 +1,6 @@
 package com.itheima.controller;
 
+import com.itheima.pojo.User;
 import com.itheima.service.UserService;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,33 @@ public class UserController {
     public String sayHello(){
         return userService.sayHello();
     }
+
+
+    /**
+     *根据id 查询用户信息
+     */
+    int i=1;
+    @RequestMapping("/find")
+    public User find(Integer id){
+        // // int i=1;
+        // new Thread(new Runnable() {
+        //     public void run() {
+        //         while (true) {
+        //             System.out.println(i++);
+        //             try {
+        //                 Thread.sleep(1000);
+        //             } catch (InterruptedException e) {
+        //                 e.printStackTrace();
+        //             }
+        //         }
+        //     }
+        // }).start();
+
+        return userService.findUserById(id);
+    }
+
+
+
 
 }
 

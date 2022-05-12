@@ -1,5 +1,6 @@
 package com.itheima.service.impl;
 
+import com.itheima.pojo.User;
 import com.itheima.service.UserService;
 import org.apache.dubbo.config.annotation.Service;
 
@@ -11,5 +12,19 @@ public class UserServiceImpl implements UserService {
 
     public String sayHello() {
         return "hello dubbo 2!~";
+    }
+
+    public User findUserById(Integer id) {
+        // System.out.println("version1.0");
+        // System.out.println("服务被调用了："+ i++ +"次");
+        // //查询User对象
+        User user = new User(id, "zhangsan", "123");
+        //数据库查询很慢
+        // try {
+        //     Thread.sleep(5000);
+        // } catch (InterruptedException e) {
+        //     e.printStackTrace();
+        // }
+        return user;
     }
 }
